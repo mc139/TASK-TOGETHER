@@ -1,12 +1,11 @@
-package zadanie.model;
+package boat.model;
 
+import boat.model.boat.Boat;
+import boat.model.boat.DockEntry;
 import lombok.Getter;
 import lombok.Setter;
-import zadanie.model.boat.Boat;
-import zadanie.model.boat.DockEntry;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Getter
 @Setter
@@ -22,16 +21,16 @@ public class Dock {
         this.capacityInCubicMeters = capacityInCubicMeters;
     }
 
-//    public void addBoat(Boat boat){
-//        if()
-//        boat.setDock(this);
-//        boats.add(boat);
-//    }
+    public double getOccupiedCapacity() {
+        return Optional.ofNullable(boats).orElse(Collections.emptyList()).stream()
+                .filter(Objects::nonNull)
+                .filter(c -> c.getVolume() != 0)
+                .mapToDouble(Boat::getVolume)
+                .sum();
+    }
 
-    ////todo sprawdzic czy jest wystarczajaco duzo miejsca i czy lodka nie jest juz w zadnycm docku a jesli jest to rzucamy wyjatkiem
-    public void addEntry(DockEntry entry){
-        entries.add(entry);
-        boats.add(entry.getBoat());
+    public double getCapacityLeft() {
+        return capacityInCubicMeters - getOccupiedCapacity();
     }
 
     @Override
@@ -40,4 +39,6 @@ public class Dock {
                 "name='" + name + '\'' +
                 ", capacityInCubicMeters=" + capacityInCubicMeters;
     }
+
+
 }

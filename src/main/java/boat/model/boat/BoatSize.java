@@ -1,4 +1,4 @@
-package zadanie.model.boat;
+package boat.model.boat;
 
 import lombok.Getter;
 

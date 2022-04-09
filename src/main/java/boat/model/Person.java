@@ -1,20 +1,20 @@
-package zadanie.model;
+package boat.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
-
+@Getter
+@ToString
 public class Person {
 
+    public static List<Person> peopleExtension = new ArrayList<>();
     private String name;
     private int age;
     private LocalDate dob;
-    public static List<Person> peopleExtension = new ArrayList<>();
 
     public Person(String name, int age, LocalDate dob) {
         this.name = name;

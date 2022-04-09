@@ -1,4 +1,4 @@
-package zadanie.exception;
+package boat.exception;
 
 public class TooManyPeopleException extends RuntimeException {
 

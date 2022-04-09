@@ -1,9 +1,9 @@
-package zadanie.model.boat;
+package boat.model.boat;
 
+import boat.exception.TooManyPeopleException;
+import boat.model.Person;
 import org.junit.Before;
 import org.junit.Test;
-import zadanie.exception.TooManyPeopleException;
-import zadanie.model.Person;
 
 import java.time.LocalDate;
 
@@ -11,12 +11,12 @@ import static org.junit.Assert.assertEquals;
 
 public class BoatTest {
 
-     Boat boat;
+    Boat boat;
 
-     @Before
-     public void init(){
-         boat = new Boat("test", BoatSize.SMALLBOAT, 1200, null, 4);
-     }
+    @Before
+    public void init() {
+        boat = new Boat("test", BoatSize.SMALLBOAT, 1200, null, 4);
+    }
 
 
     @Test(expected = TooManyPeopleException.class)
